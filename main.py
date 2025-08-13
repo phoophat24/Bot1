@@ -313,15 +313,15 @@ class Music(commands.Cog):
         await interaction.response.send_message(f"🔊 ตั้งเสียงเป็น {percent}% (มีผลกับเพลงใหม่ทันที)")
 
     @app_commands.command(name="loop", description="โหมดเล่นซ้ำ: off / one / all")
-@app_commands.choices(mode=[
+    @app_commands.choices(mode=[
     app_commands.Choice(name="off", value="off"),
     app_commands.Choice(name="one", value="one"),
     app_commands.Choice(name="all", value="all")
-])
-async def loop(self, interaction: discord.Interaction, mode: str):
-    player = self.get_player(interaction.guild)
-    player.loop_mode = mode
-    await interaction.response.send_message(f"🔁 ตั้ง loop: **{mode}**")
+    ])
+    async def loop(self, interaction: discord.Interaction, mode: str):
+        player = self.get_player(interaction.guild)
+        player.loop_mode = mode
+        await interaction.response.send_message(f"🔁 ตั้ง loop: **{mode}**")
 
     @app_commands.command(name="leave", description="ให้ออกจากช่องเสียง")
     async def leave(self, interaction: discord.Interaction):
@@ -385,6 +385,7 @@ class Bot(commands.Bot):
 server_on
 
 bot.run(os.getenv('TOKEN'))  # เริ่มบอทด้วย Token ที่ตั้งไว้ใน .env
+
 
 
 
