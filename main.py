@@ -384,7 +384,11 @@ class Bot(commands.Bot):
 
 server_on
 
-bot.run(os.getenv('TOKEN'))  # เริ่มบอทด้วย Token ที่ตั้งไว้ใน .env
+
+bot = Bot()          
+keep_alive()          
+bot.run(os.getenv('TOKEN'))
+
 
 
 
